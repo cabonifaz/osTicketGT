@@ -1,0 +1,12 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "php": {
+    "version": "8.1",
+    "extensions": ["mysqli", "imap", "gd", "zip", "pdo_mysql", "curl", "mbstring", "xml", "json", "openssl"]
+  },
+  "deploy": {
+    "startCommand": "php -S 0.0.0.0:${PORT:-8000} -t ."
+  }
+}
