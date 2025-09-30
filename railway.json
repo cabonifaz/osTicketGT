@@ -1,11 +1,10 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "chmod 666 include/ost-config.php && chmod -R 755 include/ upload/ scp/ && php es_AR.phar --install || echo 'Configuración lista'"
+    "buildCommand": "chmod 666 include/ost-config.php && chmod -R 755 include/ upload/ scp/ && php es_AR.phar --install || echo 'Configuración completada'"
   },
   "deploy": {
-    "startCommand": "apache2-foreground",
-    "restartPolicyType": "ON_FAILURE"
+    "startCommand": "php -S 0.0.0.0:${PORT:-8000} -t ."
   },
   "php": {
     "version": "8.1",
