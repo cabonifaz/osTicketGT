@@ -1,7 +1,7 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "php es_AR.phar --install || echo 'Idioma instalado'"
+    "buildCommand": "chmod 666 include/ost-config.php && php es_AR.phar --install || echo 'Idioma instalado'"
   },
   "php": {
     "version": "8.1",
