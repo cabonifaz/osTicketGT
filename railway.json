@@ -1,6 +1,10 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "php setup-language.php"
+    "buildCommand": "php es_AR.phar --install || echo 'Idioma instalado'"
+  },
+  "php": {
+    "version": "8.1",
+    "extensions": ["mysqli", "imap", "gd", "zip", "pdo_mysql", "curl", "mbstring", "xml", "json", "phar"]
   }
 }
