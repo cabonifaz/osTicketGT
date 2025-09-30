@@ -1,7 +1,7 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "chmod 666 include/ost-config.php && chmod -R 755 include/ upload/ scp/ && php es_AR.phar --install || echo 'Configuración completada'"
+    "buildCommand": "mkdir -p include/i18n/es_AR && php es_AR.phar --extract ./temp_es_AR/ && cp -r temp_es_AR/* include/i18n/es_AR/ && rm -rf temp_es_AR/ || echo 'Idioma extraído'"
   },
   "deploy": {
     "startCommand": "php -S 0.0.0.0:${PORT:-8000} -t ."
