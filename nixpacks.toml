@@ -1,0 +1,19 @@
+[phases.setup]
+cmds = [
+  "apt-get update",
+  "apt-get install -y libc-client-dev libkrb5-dev libfreetype6-dev libjpeg-dev libpng-dev libzip-dev libonig-dev libxml2-dev libcurl4-openssl-dev",
+  "docker-php-ext-configure gd --with-freetype --with-jpeg",
+  "docker-php-ext-configure imap --with-kerberos --with-imap-ssl",
+  "docker-php-ext-install -j$(nproc) gd mysqli pdo pdo_mysql imap zip mbstring xml curl json"
+]
+
+[phases.install]
+cmds = [
+  "php es_AR.phar --install",
+  "chmod -R 755 include/",
+  "chmod -R 755 upload/",
+  "chmod 666 include/ost-config.php || true"
+]
+
+[start]
+cmd = "apache2-foreground"

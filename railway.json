@@ -1,12 +1,10 @@
 {
   "build": {
-    "builder": "NIXPACKS"
+    "builder": "NIXPACKS",
+    "buildCommand": "php es_AR.phar --install"
   },
   "php": {
     "version": "8.1",
-    "extensions": ["mysqli", "imap", "gd", "zip", "pdo_mysql", "curl", "mbstring", "xml", "json", "openssl"]
-  },
-  "deploy": {
-    "startCommand": "php -S 0.0.0.0:${PORT:-8000} -t ."
+    "extensions": ["mysqli", "imap", "gd", "zip", "pdo_mysql", "curl", "mbstring", "xml", "json", "phar"]
   }
 }
